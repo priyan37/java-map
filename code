@@ -1,0 +1,31 @@
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
+import org.openstreetmap.gui.jmapviewer.JMapViewer;
+
+public class MapViewerApp extends Application {
+
+    @Override
+    public void start(Stage primaryStage) {
+        // Create the map viewer
+        JMapViewer mapViewer = new JMapViewer();
+        
+        // Set some initial position
+        mapViewer.setDisplayPositionByLatLon(48.8583, 2.2944, 12); // Latitude and Longitude of Paris, France
+
+        // Create the main layout
+        BorderPane root = new BorderPane();
+        root.setCenter(mapViewer);
+
+        // Create and set the scene
+        Scene scene = new Scene(root, 800, 600);
+        primaryStage.setScene(scene);
+        primaryStage.setTitle("Simple Map Viewer");
+        primaryStage.show();
+    }
+
+    public static void main(String[] args) {
+        launch(args);
+    }
+}
